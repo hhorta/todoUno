@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Formularios</h4>
+        <p class="card-description">Formularios para agregar categorías y/o productos</p>
+        <ngb-tabset class="tab-basic">
+          <ngb-tab title="Categorías">
+            <ng-template ngbTabContent>
+              <div class="col-md-12 grid-margin stretch-card">
+                <app-forms-category class="col-md-12 grid-margin stretch-card" style="margin-top:10px ;"></app-forms-category>
+              </div>
+
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Productos">
+            <ng-template ngbTabContent>
+              <div class="col-md-12 grid-margin stretch-card">
+                <app-forms-products class="col-md-12 grid-margin stretch-card" style="margin-top:10px ;"></app-forms-products>
+              </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</div>

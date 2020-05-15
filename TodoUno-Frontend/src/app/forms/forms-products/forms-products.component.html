@@ -1,0 +1,102 @@
+
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Insertar Producto</h4>
+          <p class="card-description">
+            Formulario para agregar un producto
+          </p>
+          <form class="forms-sample" #productsForm="ngForm">
+            <div class="form-group" *ngIf="!producto.id">
+              <label>Referencia</label>
+              <input type="text" class="form-control" [(ngModel)]="producto.code" name="code"
+                #code="ngModel">
+            </div>
+            <div class="form-group" *ngIf="!producto.id">
+              <label>Nombre</label>
+              <input type="text" class="form-control" [(ngModel)]="producto.name" name="name"
+                #name="ngModel">
+            </div>
+            <div class="form-group" *ngIf="!producto.id">
+              <label for="exampleInputName1">Descripción</label>
+              <input type="text" class="form-control" [(ngModel)]="producto.description" name="description"
+                #description="ngModel">
+            </div>
+            <div class="form-group" *ngIf="!producto.id">
+              <label for="exampleInputName1">Cantidad de productos</label>
+              <input type="number" class="form-control" [(ngModel)]="producto.inProducts" name="inProducts"
+                #inProducts="ngModel">
+            </div>
+            <div class="form-group" *ngIf="!producto.id">
+              <label for="exampleInputName1">Precio unidad</label>
+              <input type="number" class="form-control" [(ngModel)]="producto.priceUnit" name="priceUnit"
+                #priceUnit="ngModel">
+            </div>
+            <div class="form-group" *ngIf="!producto.id">
+              <label>Proveedor</label>
+              <select class="form-control border-info" name="id" [(ngModel)]="proveedor.id" #id="ngModel">
+                <option [value]="item.id" *ngFor="let item of proveedores">{{item.description}}</option>
+              </select>
+
+            </div>
+            <div class="form-group" *ngIf="!producto.id">
+              <label>Categoría</label>
+              <select class="form-control border-info" name="id" [(ngModel)]="categoria.id" #id="ngModel">
+                <option [value]="item.id" *ngFor="let item of categorias">{{item.description}}</option>
+              </select>
+            </div>
+            <button class="btn btn-success mr-2" (click)='createProduct()' 
+              *ngIf="!producto.id else elseBlockProduct" [disabled]="!productsForm.form.valid">Enviar</button>
+            <button class="btn btn-light" *ngIf="!producto.id" [routerLink]="['/tables']">Cancelar</button>
+            <ng-template #elseBlockProduct>
+              <div class="form-group">
+                <label>Referencia</label>
+                <input type="text" class="form-control" [(ngModel)]="producto.code" name="code"
+                  #code="ngModel">
+              </div>
+              <div class="form-group" *ngIf="producto.id">
+                <label>Nombre</label>
+                <input type="text" class="form-control" [(ngModel)]="producto.name" name="name"
+                  #name="ngModel">
+              </div>
+        
+              <div class="form-group" *ngIf="producto.id">
+                <label for="exampleInputName1">Descripción</label>
+                <input type="text" class="form-control" [(ngModel)]="producto.description" name="description"
+                  #description="ngModel">
+              </div>
+              <div class="form-group" *ngIf="producto.id">
+                <label for="exampleInputName1">Cantidad de productos</label>
+                <input type="number" class="form-control" [(ngModel)]="producto.inProducts" name="inProducts"
+                  #inProducts="ngModel">
+              </div>
+              <div class="form-group" *ngIf="producto.id">
+                <label for="exampleInputName1">Precio unidad</label>
+                <input type="number" class="form-control" [(ngModel)]="producto.priceUnit" name="priceUnit"
+                  #priceUnit="ngModel">
+              </div>
+              <div class="form-group" *ngIf="producto.id">
+                <label>Proveedor</label>
+                <select class="form-control border-info" name="id" [(ngModel)]="proveedor.id" #id="ngModel">
+                  <option [value]="item.id" *ngFor="let item of proveedores">{{item.description}}</option>
+                </select>
+              </div>
+              <div class="form-group" *ngIf="producto.id">
+                <label>Categoría</label>
+                <select class="form-control border-info" name="id" [(ngModel)]="categoria.id" #id="ngModel">
+                  <option [value]="item.id" *ngFor="let item of categorias">{{item.description}}</option>
+                </select>
+              </div>
+
+
+
+
+              <button class="btn btn-success mr-2" (click)='createProduct()' 
+                *ngIf="!producto.id else elseBlockProduct" [disabled]="!productsForm.form.valid">Enviar</button>
+              <button class="btn btn-light" *ngIf="!producto.id" [routerLink]="['/tables']">Cancelar</button>
+              </ng-template>
+          </form>
+        </div>
+      </div>
+
+
+

@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lista de categorías</h4>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Codigo</th>
+                <th>Categoría</th>
+                <th>Fecha de creación</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let categoria of categorias">
+                <td>{{ categoria.id }}</td>
+                <td>{{ categoria.description }}</td>
+                <td>{{ categoria.createAt }}</td>
+                <td>
+                  <button type="button" name="editar" class="btn btn-warning btn-sm"
+                    [routerLink]="['/forms/categoria', categoria.id]">Editar</button>
+                </td>
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lista de Productos</h4>
+
+        <div class="alert alert-info" *ngIf="productos?.length<=0">
+          No hay procuctos en la base de datos!
+        </div>
+        <div class="table-responsive" *ngIf="!productos?.length<=0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Cantidad Productos</th>
+                <th>Precio Unidad</th>
+                <th>Proveedor</th>
+                <th>Categoría</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let producto of productos">
+                <td>{{ producto.code }}</td>
+                <td>{{ producto.name }}</td>
+                <td>{{ producto.description }}</td>
+                <td>{{ producto.inProducts }}</td>
+                <td>{{ producto.priceUnit }}</td>
+                <td>{{ producto.supplierId.description }}</td>
+                <td>{{ producto.categoryId.description }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
